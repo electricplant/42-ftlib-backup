@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   memmove.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgerhard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 15:03:25 by dgerhard          #+#    #+#             */
-/*   Updated: 2023/11/06 15:03:29 by dgerhard         ###   ########.fr       */
+/*   Created: 2023/11/09 11:20:38 by dgerhard          #+#    #+#             */
+/*   Updated: 2023/11/09 11:20:42 by dgerhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(char character)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	if (character >= 'a' && character <= 'z')
-		return (1);
-	else if (character >= 'A' && character <= 'Z')
-		return (1);
-	return (0);
-}
+	size_t	i;
 
-// int main(void)
-// {
-//     char a = '1';
-//     if (ft_isalpha(a) == 1)
-//         __builtin_printf("%s", "gud");
-//     else
-//         __builtin_printf("%s", "no gud");
-// }
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	if (src < dest)
+	{
+		while (n > 0)
+		{
+			((unsigned char *)dest)[n - 1] = ((unsigned char *)src)[n - 1];
+			n--;
+		}
+	}
+	else
+	{
+		while (i < n)
+		{
+			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			i++;
+		}
+	}
+	return ((unsigned char *)dest);
+}

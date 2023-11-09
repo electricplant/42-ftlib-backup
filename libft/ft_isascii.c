@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   isascii.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgerhard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 11:20:38 by dgerhard          #+#    #+#             */
-/*   Updated: 2023/11/09 11:20:42 by dgerhard         ###   ########.fr       */
+/*   Created: 2023/11/06 16:49:23 by dgerhard          #+#    #+#             */
+/*   Updated: 2023/11/06 16:49:25 by dgerhard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+int	ft_isascii(int c)
 {
-	unsigned int	i;
-	char			*destination;
-	char			*source;
-	char			*temp;
-
-	if (dest == NULL || src == NULL)
-		return (NULL);
-	if (!(cpy = (char*)malloc(sizeof(char*) * len)))
-		return (NULL);
-	
-	destination = dest;
-	source = src;
-	i = 0;
-	while (i < n)
-	{
-		temp[i] = source[i];
-		i++;
-	}
-	
-
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
